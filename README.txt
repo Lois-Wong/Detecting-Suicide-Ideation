@@ -10,9 +10,9 @@ link: https://www.kaggle.com/datasets/nikhileswarkomati/suicide-watch
 
 The data are a collection of posts collected from the 'SuicideWatch' and 'teenagers' subreddits from the Reddit platform using PushshiftAPI. Posts were created between 16 December 2008 - 2 January 2021. Social media posts collected from the 'SuicideWatch' subreddit are labelled 'suicide', while posts collected from 'teenagers' are labelled 'non-suicide'
 
-**Business Problem**: The goal of this project is to effectively predict whether an individual will subscribe to a bank term deposit or not, in order that marketing resources can be better distributed amongst and targeted towards clients more likely to subscribe.
+**Business Problem**: The goal of this project is to detect suicidal ideation from social media posts by identifying the text features that most effectively predict whether a user is at risk for suicide.
 
-**Data Problem**: The data task is to fit and tune multiple classification models that group individuals into subscribers vs non-subscribers. Models with high accuracy and/or recall can be used to predict the subscription status of unseen clients. Additionally, fitting regression model(s) that can be further scrutinzed for the most important features and feature values that characterize each of the two groups will indicate the profile of a subscribing client. These features will used for selecting the clients on whom resources should be focused.
+**Data Problem**: The data task is to fit and tune multiple binary classification models that group social media posts into suicidal vs non-suicidal. Models with high accuracy can be used to predict, from future/unseen posts, whether their writer is at risk for suicide. Further scrutinizing the most important features and parameters which compose the best model will indicate better ways to detect suicide risk. 
 
 ### Motivation
 
