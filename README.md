@@ -3,16 +3,16 @@
 
 ### Project Description
 
-**Research Question**: How can we better detect suicide risk? 
+**Research Question**: What are the best features and model parameters for detecting those at risk for suicide? 
 
-**Data Overview**: The dataset is sourced from Kaggle and can be accessed at 
-link: https://www.kaggle.com/datasets/nikhileswarkomati/suicide-watch 
+**Goal:** The goal of this project is to identify how to best detect those at risk for suicide. I will be comparing the performance of different classification algorithms by training several models (Naive Bayes, Logistic Regression, and Decision Trees) to detect suicide ideation from social media posts. After comparing model performance, we will further scrutinize the best classification model to **identify the features and parameters which most effectively predict whether a user is at risk for suicide**.
+
+**Data Overview**: The dataset is sourced from Kaggle and can be accessed at https://www.kaggle.com/datasets/nikhileswarkomati/suicide-watch 
 
 The data are a collection of posts collected from the 'SuicideWatch' and 'teenagers' subreddits from the Reddit platform using PushshiftAPI. Posts were created between 16 December 2008 - 2 January 2021. Social media posts collected from the 'SuicideWatch' subreddit are labelled 'suicide', while posts collected from 'teenagers' are labelled 'non-suicide'
 
-**Business Problem**: The goal of this project is to detect suicidal ideation from social media posts by identifying the text features that most effectively predict whether a user is at risk for suicide.
 
-**Data Problem**: The data task is to fit and tune multiple binary classification models that group social media posts into suicidal vs non-suicidal. Models with high accuracy can be used to predict, from future/unseen posts, whether their writer is at risk for suicide. Further scrutinizing the most important features and parameters which compose the best model will indicate better ways to detect suicide risk. 
+**Data Problem**: The data task is to train and tune multiple binary text classification models that group social media posts into suicidal vs non-suicidal. Models with high accuracy can be used to predict, from future/unseen posts, whether their writer is at risk for suicide. Further scrutinizing the most important features and parameters which compose the best model will indicate better ways to detect suicide risk. 
 
 ### Motivation
 
