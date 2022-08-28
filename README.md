@@ -1,22 +1,39 @@
-## Detecting Suicide Ideation from Social Media Posts  
+### Detecting Suicide Ideation from Social Media Posts  
+
+**Lois Wong**
+
+#### Executive summary
+<> <><>><><><<>><><><><<><><>><><>><>><><><><
+
+#### Rationale
+<> <><>><><><<>><><><><<><><>><><>><>><><><><
+
+
+"There is only one really serious philosophical problem and that is suicide" -- Albert Camus 
+
+Suicide is a leading cause of death in the US 
+
+
+#### Research Question
+What are the the best features and model parameters for detecting those at risk for suicide? 
 
 
 ### Project Description
 
-**Research Question**: What are the best features and model parameters for detecting those at risk for suicide? 
+**Goal:** The goal of this project is to identify better ways to detect people who are at risk for suicide. 
 
-**Goal:** The goal of this project is to identify better ways to detect people at risk for suicide. We will be training several classification models (Naive Bayes, Logistic Regression, Decision Trees, SVC, KNN) to detect suicide ideation from social media posts and comparing their performances.  
+To detect suicide ideation, we will be training and tuning several binary text classification models to group social media posts into suicidal vs non-suicidal classes. Models will be able to predict, from future/unseen posts, whether their writer is at risk for suicide. We will assess model performance and further scrutinize the predictive models to find the optimal features and parameters for this classification task, then identify measures to more effectively detect suicide ideation. 
 
-**Data Overview**: The dataset is sourced from Kaggle and can be accessed at https://www.kaggle.com/datasets/nikhileswarkomati/suicide-watch 
+
+**Data Overview ** 
+
+The dataset is sourced from Kaggle and can be accessed at https://www.kaggle.com/datasets/nikhileswarkomati/suicide-watch 
 
 The data are a collection of posts collected from the 'SuicideWatch' and 'teenagers' subreddits from the Reddit platform using PushshiftAPI. Posts were created between 16 December 2008 - 2 January 2021. Social media posts collected from the 'SuicideWatch' subreddit are labelled 'suicide', while posts collected from 'teenagers' are labelled 'non-suicide'
 
 
-**Data Problem**: The data task is to train and tune multiple binary text classification models to group social media posts into suicidal vs non-suicidal classes. Models with high accuracy will be used to predict, from future/unseen posts, whether their writer is at risk for suicide. We will further scrutinize the predictive models to find the optimal features and parameters, then identify measures to more effectively detect suicide ideation. 
 
-### Motivation
-
-This project is completed to fulfill the requirements of UC Berkeley's Professional Certificate in Machine Learning and Artificial Intelligence.
+### Methodology
 
 ### Findings
 
@@ -62,13 +79,15 @@ The top models for F1 are Logistic Regression + lem (0.894), SVC + stem (0.889) 
 
 
 
-### Access
-Link to Notebook
-Part I: http://localhost:8888/lab/tree/Downloads/ML%20ipynb/Capstone/Capstone.ipynb
+#### Outline of project
+
+- [Link to notebook] (http://localhost:8888/lab/tree/Downloads/ML%20ipynb/Capstone/Capstone.ipynb) 
+
+- [Link to download data] (http://localhost:8888/files/Downloads/ML%20ipynb/Capstone/SuicideDetection.csv?_xsrf=2%7C01e7821a%7C54dac168862e9a75a5e46c1d11d7822e%7C1658864864) 
+
+- [Link to download notebook] (http://localhost:8888/files/Downloads/ML%20ipynb/Capstone/Capstone.ipynb?_xsrf=2%7C01e7821a%7C54dac168862e9a75a5e46c1d11d7822e%7C1658864864)
 
 
-Link to Download 
-Data: http://localhost:8888/files/Downloads/ML%20ipynb/Capstone/SuicideDetection.csv?_xsrf=2%7C01e7821a%7C54dac168862e9a75a5e46c1d11d7822e%7C1658864864
-
-Part I: http://localhost:8888/files/Downloads/ML%20ipynb/Capstone/Capstone.ipynb?_xsrf=2%7C01e7821a%7C54dac168862e9a75a5e46c1d11d7822e%7C1658864864
+##### Contact and Further Information
+Email: lois@berkeley.edu 
 
