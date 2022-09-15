@@ -12,11 +12,11 @@
 [![Model-Scores.png](https://i.postimg.cc/tJKbRcwv/Model-Scores.png)](https://postimg.cc/30FVntK2)
 
 
-**Results and conclusion:** Our evaluation of the best model returns a list of words associated with their feature importance, or how helpful/unhelpful they were in the classification task. A global model analysis revealing the most effective (stemmed) words to detect [+ suicide] across the entire data shows the top five features to be ["suicid", "kill", "end", "pill", "life"] (results below). The KL-divergence for this prediction is ~0.012, indicating close similarity in predictions between the black box model and the model built with LIME used for interpretation.
+**Results and conclusion:** Our evaluation of the best model returned a list of words associated with their feature importance, or how helpful/unhelpful they were in the classification task. A global model analysis revealing the most effective (stemmed) words to detect [+ suicide] across the entire data shows the top five features to be ["suicid", "kill", "end", "pill", "life"] (results below). 
 
 [![Model-Feature-Weights.png](https://i.postimg.cc/XqqF6syz/Model-Feature-Weights.png)](https://postimg.cc/BPWtxcpT)
 
-A local model analysis consisting of two example predictions (one suicide, one non-suicide) returns the most prominent features of those individual posts in the class decision. 
+A local model analysis consisting of two example predictions (one suicide, one non-suicide) returns the most prominent features of those individual posts in the class decision. The KL-divergence for this non-suicidal class prediction is ~0.012, indicating close similarity in predictions between the black box model and the model built with LIME used for interpretation.
 
 Image (below): Feature weights of a non-suicidal post prediction 
 
@@ -27,23 +27,23 @@ Image (below): Feature weight of a suicidal post prediction. A dark green highli
 [![Suicidal-Example.png](https://i.postimg.cc/D0D81FY2/Suicidal-Example.png)](https://postimg.cc/QKQ83L3P)
 
 
-This study shows that a word's presence in a document/social media post plays a significant role in the task of identifying individuals with suicide ideation -- some words more than others. Below is a word cloud, which visualizes the most representative (common) words of each class. Further work can be done in crosschecking this ordering of words vs their weights assigned by not just the SVC model but also the Logistic Regression, Decision Tree, and Naive Bayes models. 
+This study shows that a word's presence in a document/social media post plays a significant role in the task of identifying individuals with suicide ideation -- some words more than others. Below is a word cloud, which showcases the most representative (common) words of each class. Further work can be done in crosschecking this ordering of words vs their weights assigned by not just the SVC model but also the Logistic Regression, Decision Tree, and Naive Bayes models. 
 
 [![Suicidal-Word-Cloud.png](https://i.postimg.cc/fTdYG6x0/Suicidal-Word-Cloud.png)](https://postimg.cc/Yhp4gDDp)
 
 [![Non-Suicidal-Word-Cloud.png](https://i.postimg.cc/66ySFLYG/Non-Suicidal-Word-Cloud.png)](https://postimg.cc/s1CwhSFV)
 
 
-
 **Future research and development:** Comparing the two feature values shows an interesting dichotomy in the feature importance assigned "feel". It has a high positive score in classifying our first post as non-suicidal and a negative importance in classifying our second post as suicidal. This gives way to a theory that the absense of certain words is a significant feature in gauging a post's non-membership of a class -- and in a binary classification problem, its membership of the second class. Because it is impossible for a person/post to be both or neither suicidal nor non-suicidal, saying that a post is not [suicidal] is synonymous with saying it is [not suicidal].
 
-Additionally, further work can be done in improving the performance of the best classification model. The best model can be extended or even replaced by experimenting with or incorporating other algorithms and techniques, such as ensemble methods or recurrent neural networks. 
+**Next steps and recommendations:** We can explore this possibility by **using the pandas query function to compile two lists of words: Those that appear only in suicidal posts and those that only appear in non-suicidal posts.** One might begin by **building two vocabularies**, the first consisting of every unique word from the all the posts in the suicidal class, and the second consisting of every unique word from the non-suicidal class. It may be illuminating to **go through these two vocabularies and make a list of [words that appear in class 1 and not in class 0] and another list of [words that appear in class 0 and not in class 1]**. Additionally, one could **cross check the model permutation importance scores of words in these two lists to see if they have high absolute permutation importance values.**
+
+Additionally, further work can be done in improving the performance of the best classification model. **The best model can be extended, further fine-tuned, or even replaced by experimenting with or incorporating other algorithms and techniques, such as ensemble methods or recurrent neural networks**. Future exploration can also be done in **crosschecking the importance of words, as indicated by the word cloud, and the words' weights, assigned by not just the SVC model but also the Logistic Regression, Decision Tree, and Naive Bayes models.**
+
 
 ### Rationale
 
-The problem this project tries to solve is the growing rate of suicide. A lot undetected. Stick in statistics. On prevention and detection, starting with ideation. 
-
-According to the CDC, suicide rates increased 30% between 2000 and 2018, and in 2020, suicide was among the top 9 leading causes of death for individuals aged 10-64, taking the lives of 45,979 people that year.  The number of individuals who think about or attempt suicide is even greater, with an estimated 12.2 million American adults seriously considering suicide in 2020, 3.2 million planned attempts, and 1.2 million actual attempts. (Centers for Disease Control and Prevention [CDC], 2022)
+The problem this project tries to solve is the growing rate of suicide. According to the CDC, suicide rates increased 30% between 2000 and 2018, and in 2020, suicide was among the top 9 leading causes of death for individuals aged 10-64, taking the lives of 45,979 people that year.  The number of individuals who think about or attempt suicide is even greater, with an estimated 12.2 million American adults seriously considering suicide in 2020, 3.2 million planned attempts, and 1.2 million actual attempts. (Centers for Disease Control and Prevention [CDC], 2022)
 
 Suicide can be prevented, and the first step to prevention is identifying those in need of support/treatment.   
 
@@ -59,7 +59,7 @@ The data are a collection of posts collected from the 'SuicideWatch' and 'teenag
 
 20,000 random samples from the data is used for model training to facilitate computation. 
 
-**Exploratory data analysis:** There are no null values in this data, and the length of the majority of posts lie under 500 characters, with very few exceeding 2000 characters. Mean character count is 680.136, min character count is 7, and max character count is 40106. This is visualized below. 
+**Exploratory data analysis:** There are no null values in this data, and the length of the majority of posts lie under 500 characters, with very few exceeding 2000 characters. Mean character count is 680.136, min character count is 7, and max character count is 40106. This is illustrated below. 
 
 [![Post-Char-Count.png](https://i.postimg.cc/8zMs46q2/Post-Char-Count.png)](https://postimg.cc/QFNXxHNm)
 
@@ -68,10 +68,9 @@ The data are a collection of posts collected from the 'SuicideWatch' and 'teenag
 
 The data is randomly split into train and test sets to facilitate holdout cross validation, with a test size of 0.25. 
 
-**Preprocessing:** A preprocessing function is written to first tokenize posts using TweetTokenizer and ignore casing. Following this, stopword and punctuation are removed, and the remaining words are stemmed with PorterStemmer. Lemmatization is not used because previous testing of that method on this data revealed little to no effect in model performance (accuracy) and took significantly longer to run. 
+**Preprocessing:** A preprocessing function is written to first tokenize posts using TweetTokenizer and ignore casing. Stopwords and punctuation are removed, and the remaining words are stemmed with PorterStemmer. Lemmatization is not used because previous testing of that method on this data revealed little to no improvement in model performance (accuracy) and took significantly longer to run. 
 
 **Final Dataset:** The final dataset consists of two columns: "text" indicating the textual contents of the social media post, and "suicide" indicating the class -- 1 for suicidal and 0 for non-suicidal. 
-
 
 The data are balanced, with comparable counts of suicide and non-suicide posts. This makes accuracy score a suitable metric for evaluating models trained on this data. Class distribution of posts can be seen below. 
 
@@ -84,11 +83,16 @@ The first five rows of the dataframe can be seen below.
 
 ### Methodology
 
-Holdout cross validation is implemented. Models were trained on the training set and validated with the test set. Additionally, RandomizedSearchCV evaluated models using accuracy score, and fine tuned each model's hyperparameters to maximize this metric.  Accuracy is suitable because we have a balanced dataset. Accuracy measures the proportion of correctly predicted observations out of total observations and is calculated as (True Positive count + True Negative count) / (Total count).
+Holdout cross validation is implemented. Models were trained on the training set and validated with the test set. Additionally, RandomizedSearchCV was used to evaluate models using accuracy score, and fine tuned each model's hyperparameters to maximize this metric.  Accuracy is suitable because we have a balanced dataset and measures the proportion of correctly predicted observations out of total observations. It is calculated as (True Positive count + True Negative count) / (Total count), or
+
+$$
+\frac{TP + TN}{TP + TN + FP + FN}
+$$
+
 
 Four models were trained, fine-tuned, and will be later compared to find the best model for this task.
 
-**Naive Bayes Model:** A pipeline object is created to standardize the data using TF-IDF and instantiate a Naïve Bayes model. RandomizedSearchCV is used to find the optimal alpha value (options: [1, 0.1, 0.01, 0.001, 0]), which turned out to be 0.1
+**Naive Bayes Model:** A pipeline object is created to standardize the data using TF-IDF and instantiate a Naïve Bayes model. RandomizedSearchCV is used to find the optimal alpha value (options: [1, 0.1, 0.01, 0.001, 0]), which turned out to be 0.1.
 
 **Logistic Regression Model:** A pipeline object is created to standardize the data using TF-IDF and instantiate a Logistic Regression model. RandomizedSearchCV is used to find (1) the optimal penlaty, with the options being ['l1', 'l2', 'none'] and (2) whether an intercept term should be included (options: [True, False]). The best model has l2 penalty and an intercept term.
 
@@ -96,13 +100,12 @@ Four models were trained, fine-tuned, and will be later compared to find the bes
 
 **Support Vector Classifier Model:** A pipeline object is created to standardize the data using TF-IDF and instantiate a Support Vector Classifier model using a linear kernel. RandomizedSearchCV is used to (1) The optimal C value (options: [0.1, 1, 10, 100, 1000]) and (2) Probability (options: [True, False]). The best model has a probability = True and a C value of 1.
 
-### Model Results 
+### Model evaluation and results 
 
-Model results will be visualized using confusion matrices, which indicate the counts of each error type a model made in the classification task. In these plots, 0 = not suicidal and 1 = suicidal.
+Model performance will be visualized using confusion matrices, which indicate the counts of each error type a model made in the classification task. In these plots, 0 = not suicidal and 1 = suicidal.
 
-FP = False Positive, FN = False Negative
 
-**Support vector classifier model:** The SVC model is the best model for detecting suicide ideation, with an accuracy score of 0.924, a recall of 0.916, and an F-1 of 0.924.This decision is based off comparing the finetuned models' accuracy, recall, and F1 scores. Out of all the models, the SVC has the best accuracy and F1 score, and the second best recall score. It also took the longest to train, at 2339 seconds. It predicts slightly more false negatives than false positives. Its confusion matrix can be seen below. 
+**Support vector classifier model:** The SVC model is the best model for detecting suicide ideation, with an accuracy score of 0.924, a recall of 0.916, and an F-1 of 0.924. This decision is based off comparing the fine-tuned models' accuracy, recall, and F1 scores. Out of all the models, the SVC has the best accuracy and F1 scores, and the second best recall score. It also took the longest to train, at 2339 seconds. It predicts slightly more false negatives than false positives and its confusion matrix can be seen below. 
 
 [![SVCMatrix.png](https://i.postimg.cc/3xzf5dJC/SVCMatrix.png)](https://postimg.cc/21F7njWV)
 
@@ -110,7 +113,7 @@ FP = False Positive, FN = False Negative
 
 [![LGRMatrix.png](https://i.postimg.cc/MKKF1CFR/LGRMatrix.png)](https://postimg.cc/4nqPgSZN)
 
-**Naive Bayes model:** The Naive Bayes model has an accuracy of 890, the best recall of 0.955, and an F-1 of 0.897. It predicts nearly four times as many false positives as false negatives, indicating it is much more likely to classify a non-suicidal person as suicidal than the other way around. Its confusion matrix can be seen below. 
+**Naive Bayes model:** The Naive Bayes model has an accuracy of 0.890, the best overall recall of 0.955, and an F-1 of 0.897. It predicts nearly four times as many false positives as false negatives, indicating it is much more likely to classify a non-suicidal person as suicidal than the other way around. Its confusion matrix can be seen below. 
 
 [![NBMatrix.png](https://i.postimg.cc/xTtB7fzt/NBMatrix.png)](https://postimg.cc/crtDtNTn)
  
@@ -118,7 +121,7 @@ FP = False Positive, FN = False Negative
 
 [![DTree-Matrix.png](https://i.postimg.cc/qqQD9wzz/DTree-Matrix.png)](https://postimg.cc/9wRB9GPh)
 
-The interpretation and evaluation of the best model can be found in the results and conclusion section of the executive summary above. 
+A detailed interpretation and evaluation of the best model can be found in the results and conclusion section of the executive summary above. 
 
 ### Outline of project
 
