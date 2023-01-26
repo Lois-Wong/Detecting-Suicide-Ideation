@@ -142,6 +142,6 @@ Lois Wong
 
 Email: lois@berkeley.edu 
 
-LinkedIn: linkedin.com/in/lois-wong
+[LinkedIn](linkedin.com/in/lois-wong)
 
 
